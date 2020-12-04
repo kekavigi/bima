@@ -1,171 +1,289 @@
-<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
-<html lang="en">
+    <title>Hello, world!</title>
+  </head>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <body>
+    <div class="container border-secondary">
+      <br />
+      <h1 style="text-align: center">Cimareme</h1>
 
-  <title>Hello, world!</title>
-</head>
+      <ul class="nav nav-tabs border-bottom border-secondary">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Update Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="addata.html">Data Baru</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tentang.html">Tentang</a>
+        </li>
+      </ul>
 
-<body>
+      <div
+        class="container border-left border-bottom border-right border-secondary"
+      >
+        <form class="needs-validation" novalidate="">
+          <br />
+          <div class="row">
+            <div class="col-lg-6">
+              <h2>Cari:</h2>
+              <div class="form-group row">
+                <label for="cari" class="col-sm-2 col-form-label">Barang</label>
+                <div class="col-sm-10">
+                  <input
+                    required=""
+                    type="text"
+                    class="form-control"
+                    id="cari"
+                    placeholder="Tulis nomor artikel atau deskripsi barang"
+                  />
+                  <div class="invalid-feedback">Barang tidak ditemukan.</div>
+                </div>
+              </div>
 
-  <div class="container border-secondary">
-    </br>
-    <h1 style="text-align:center"> Cimareme </h1>
+              <br />
+              <h2>Info:</h2>
+              <div class="form-group row">
+                <label for="artno" class="col-sm-2 col-form-label"
+                  >Art. no
+                </label>
+                <div class="col-sm-10">
+                  <label class="col-form-label" id="artno">...</label>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="deskripsi" class="col-sm-2 col-form-label"
+                  >Deskripsi
+                </label>
+                <div class="col-sm-10">
+                  <label class="col-form-label" id="deskripsi">...</label>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="order" class="col-sm-2 col-form-label"
+                  >Order
+                </label>
+                <div class="col-sm-10">
+                  <label class="col-form-label" id="order">...</label>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="totprod" class="col-sm-2 col-form-label"
+                  >Total Produksi</label
+                >
+                <div class="col-sm-10">
+                  <label class="col-form-label" id="totprod">...</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <h2>Update:</h2>
 
-    <ul class="nav nav-tabs border-bottom border-secondary">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Update Data</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="addata.html">Data Baru</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="tentang.html">Tentang</a>
-      </li>
-    </ul>
+              <div class="form-group row">
+                <label for="tanggal" class="col-sm-2 col-form-label"
+                  >Tanggal</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    required=""
+                    class="form-control"
+                    type="date"
+                    id="tanggal"
+                  />
+                  <div class="invalid-feedback">Pilih tanggal pengerjaan.</div>
+                </div>
+              </div>
 
-    <div class="container border-left border-bottom border-right border-secondary">
-      </br>
-      <h2>Cari:</h2>
-      <form>
-        <div class="form-group row">
-          <label for="artno" class="col-sm-2 col-form-label">Art. no</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="artno" placeholder="Tulis nomor artikel">
-          </div>
-        </div>
+              <div class="form-group row">
+                <label for="proses" class="col-sm-2 col-form-label"
+                  >Proses</label
+                >
+                <div class="col-sm-10">
+                  <div class="form-group">
+                    <select required="" class="custom-select" id="proses">
+                      <option value="">Pilih tahap</option>
+                      <option value="1">1 ...</option>
+                      <option value="2">2 ...</option>
+                      <option value="3">3 ...</option>
+                      <option value="4">4 ...</option>
+                      <option value="5">5 ...</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
 
-        <div class="form-group row">
-          <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="deskripsi" placeholder="Tulis deskripsi barang">
-          </div>
-        </div>
-        </br>
-        <h2>Info:</h2>
-        <div class="form-group row">
-          <label for="order" class="col-sm-2 col-form-label">Order </label>
-          <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="order" value="...">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="totprod" class="col-sm-2 col-form-label">Total Produksi</label>
-          <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" id="totprod" value="...">
-          </div>
-        </div>
+              <div class="form-group row">
+                <label for="jumlah" class="col-sm-2 col-form-label"
+                  >Jumlah</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    required=""
+                    type="number"
+                    min="0"
+                    class="form-control"
+                    id="jumlah"
+                    placeholder="Jumlah item"
+                  />
+                </div>
+              </div>
 
-        </br>
-        <h2>Update:</h2>
+              <div class="form-group row">
+                <label for="hasil" class="col-sm-2 col-form-label">Hasil</label>
+                <div class="col-sm-10">
+                  <input
+                    required=""
+                    type="number"
+                    min="0"
+                    class="form-control"
+                    id="hasil"
+                    placeholder="Jumlah item"
+                  />
+                </div>
+              </div>
 
-        <div class="form-group row">
-          <label for="tanggal" class="col-sm-2 col-form-label">Tanggal</label>
-          <div class="col-sm-10">
-            <input class="form-control" type="date" id="tanggal">
-          </div>
-        </div>
+              <div class="form-group row">
+                <label for="jumlah" class="col-sm-2 col-form-label"
+                  >Reject</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    required=""
+                    type="number"
+                    min="0"
+                    class="form-control"
+                    id="jumlah"
+                    placeholder="Jumlah item"
+                  />
+                </div>
+              </div>
 
-        <div class="form-group row">
-          <label for="proses" class="col-sm-2 col-form-label">Proses</label>
-          <div class="col-sm-10">
-            <div class="form-group">
-              <select class="form-control" id="proses">
-                <option>Pilih tahap</option>
-                <option>1 ...</option>
-                <option>2 ...</option>
-                <option>3 ...</option>
-                <option>4 ...</option>
-                <option>5 ...</option>
-              </select>
+              <div class="form-group row">
+                <label for="mesin" class="col-sm-2 col-form-label">
+                  Mesin</label
+                >
+                <div class="col-sm-10">
+                  <div class="form-group">
+                    <select required="" class="custom-select" id="mesin">
+                      <option value="">Pilih mesin</option>
+                      <option value="1">1 ...</option>
+                      <option value="2">2 ...</option>
+                      <option value="3">3 ...</option>
+                      <option value="4">4 ...</option>
+                      <option value="5">5 ...</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="operator" class="col-sm-2 col-form-label"
+                  >Operator</label
+                >
+                <div class="col-sm-10">
+                  <div class="form-group">
+                    <select required="" class="custom-select" id="mesin">
+                      <option value="">Pilih nama</option>
+                      <option value="1">1 ...</option>
+                      <option value="2">2 ...</option>
+                      <option value="3">3 ...</option>
+                      <option value="4">4 ...</option>
+                      <option value="5">5 ...</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="keterangan" class="col-sm-2 col-form-label"
+                  >Keterangan</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="keterangan"
+                    placeholder="..."
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">
+                    Laporkeun!
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="form-group row">
-          <label for="jumlah" class="col-sm-2 col-form-label">Jumlah</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="jumlah" placeholder="Jumlah item">
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label for="hasil" class="col-sm-2 col-form-label">Hasil</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="hasil" placeholder="Jumlah item">
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label for="jumlah" class="col-sm-2 col-form-label">Reject</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="jumlah" placeholder="Jumlah item">
-          </div>
-        </div>
-
-
-        <div class="form-group row">
-          <label for="mesin" class="col-sm-2 col-form-label">Nama Mesin</label>
-          <div class="col-sm-10">
-            <div class="form-group">
-              <select class="form-control" id="mesin">
-                <option>Pilih mesin</option>
-                <option>1 ...</option>
-                <option>2 ...</option>
-                <option>3 ...</option>
-                <option>4 ...</option>
-                <option>5 ...</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="form-group row">
-          <label for="operator" class="col-sm-2 col-form-label">Nama operator</label>
-          <div class="col-sm-10">
-            <div class="form-group">
-              <select class="form-control" id="mesin">
-                <option>Pilih nama</option>
-                <option>1 ...</option>
-                <option>2 ...</option>
-                <option>3 ...</option>
-                <option>4 ...</option>
-                <option>5 ...</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="form-group row">
-          <label for="keterangan" class="col-sm-2 col-form-label">Keterangan</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="keterangan" placeholder="...">
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">Laporkeun!</button>
-          </div>
-        </div>
-      </form>
-
+        </form>
+      </div>
     </div>
-  </div>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function () {
+        "use strict";
+        window.addEventListener(
+          "load",
+          function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName("needs-validation");
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(
+              forms,
+              function (form) {
+                form.addEventListener(
+                  "submit",
+                  function (event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add("was-validated");
+                  },
+                  false
+                );
+              }
+            );
+          },
+          false
+        );
+      })();
+    </script>
 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
