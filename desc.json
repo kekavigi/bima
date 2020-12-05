@@ -1,0 +1,26 @@
+desc = [
+  {
+    "art": "UTS20",
+    "desc": "Ujian Tengah Semester 2020"
+  },
+  {
+    "art": "WITA",
+    "desc": "Waktu Indonesia Tengah"
+  },
+  {
+    "art": "ASPV51314",
+    "desc": "Aspire Gatau Apa"
+  },
+  {
+    "art": "L120",
+    "desc": "Printer Rumah"
+  },
+  {
+    "art": "ISTPRES",
+    "desc": "Istana Presiden Indonesia"
+  },
+  {
+    "art": "SASABUM",
+    "desc": "Bumbu Sasa"
+  }
+]

@@ -1,0 +1,26 @@
+data = [
+  {
+    "art": "UTS20",
+    "desc": "Ujian Tengah Semester 2020",
+    "order": 123,
+    "loper": [13,33,53,73,93]
+  },
+  {
+    "art": "WITA",
+    "desc": "Waktu Indonesia Tengah",
+    "order": 69,
+    "loper": [23,43,83,163]
+  },
+  {
+    "art": "L120",
+    "desc": "Printer Rumah",
+    "order": 214,
+    "loper": [63,123,153]
+  },
+  {
+    "art": "SASABUM",
+    "desc": "Bumbu Sasa",
+    "order": 1456,
+    "loper": [103,113,133,143]
+  }
+]

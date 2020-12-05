@@ -1,0 +1,162 @@
+operator = [
+  {
+    "stamp": 13,
+    "tanggal": "5/12/2020",
+    "proses": "Q",
+    "mesin": "QWE",
+    "operator": "Amin",
+    "hasil": 123,
+    "reject": 34,
+    "keterangan": "hehe"
+  },
+  {
+    "stamp": 23,
+    "tanggal": "1/12/2020",
+    "proses": "A",
+    "mesin": "RTQ",
+    "operator": "Bagas",
+    "hasil": 214,
+    "reject": 142,
+    "keterangan": ""
+  },
+  {
+    "stamp": 33,
+    "tanggal": "1/12/2020",
+    "proses": "Z",
+    "mesin": "BVG",
+    "operator": "Cecep",
+    "hasil": 1254,
+    "reject": 34,
+    "keterangan": ""
+  },
+  {
+    "stamp": 43,
+    "tanggal": "3/12/2020",
+    "proses": "Z",
+    "mesin": "SFF",
+    "operator": "Amin",
+    "hasil": 424632,
+    "reject": 12,
+    "keterangan": "tte"
+  },
+  {
+    "stamp": 53,
+    "tanggal": "3/12/2020",
+    "proses": "E",
+    "mesin": "SGH",
+    "operator": "Franz",
+    "hasil": 4362,
+    "reject": 211,
+    "keterangan": ""
+  },
+  {
+    "stamp": 63,
+    "tanggal": "2/12/2020",
+    "proses": "W",
+    "mesin": "5G5",
+    "operator": "Doni",
+    "hasil": 14523,
+    "reject": 241,
+    "keterangan": ""
+  },
+  {
+    "stamp": 73,
+    "tanggal": "1/12/2020",
+    "proses": "Q",
+    "mesin": "FSB",
+    "operator": "Hasan",
+    "hasil": 352,
+    "reject": 415,
+    "keterangan": "nandayo!"
+  },
+  {
+    "stamp": 83,
+    "tanggal": "4/12/2020",
+    "proses": "A",
+    "mesin": "GH3",
+    "operator": "Amin",
+    "hasil": 1324,
+    "reject": 35,
+    "keterangan": ""
+  },
+  {
+    "stamp": 93,
+    "tanggal": "3/12/2020",
+    "proses": "S",
+    "mesin": "SGS",
+    "operator": "Cecep",
+    "hasil": 1235,
+    "reject": 12,
+    "keterangan": ""
+  },
+  {
+    "stamp": 103,
+    "tanggal": "5/12/2020",
+    "proses": "Z",
+    "mesin": "H5D",
+    "operator": "Doni",
+    "hasil": 132,
+    "reject": 124,
+    "keterangan": ""
+  },
+  {
+    "stamp": 113,
+    "tanggal": "5/12/2020",
+    "proses": "W",
+    "mesin": "GFG",
+    "operator": "Bagas",
+    "hasil": 134,
+    "reject": 22,
+    "keterangan": ""
+  },
+  {
+    "stamp": 123,
+    "tanggal": "1/12/2020",
+    "proses": "W",
+    "mesin": "31R",
+    "operator": "Galih",
+    "hasil": 1325,
+    "reject": 24,
+    "keterangan": ""
+  },
+  {
+    "stamp": 133,
+    "tanggal": "1/12/2020",
+    "proses": "Q",
+    "mesin": "EFG",
+    "operator": "Amin",
+    "hasil": 123,
+    "reject": 121,
+    "keterangan": ""
+  },
+  {
+    "stamp": 143,
+    "tanggal": "5/12/2020",
+    "proses": "A",
+    "mesin": "B52",
+    "operator": "Franz",
+    "hasil": 133,
+    "reject": 25,
+    "keterangan": "-paimon"
+  },
+  {
+    "stamp": 153,
+    "tanggal": "5/12/2020",
+    "proses": "E",
+    "mesin": "Q3R",
+    "operator": "Cecep",
+    "hasil": 132,
+    "reject": 32,
+    "keterangan": ""
+  },
+  {
+    "stamp": 163,
+    "tanggal": "4/12/2020",
+    "proses": "E",
+    "mesin": "3R3",
+    "operator": "Amin",
+    "hasil": 2341,
+    "reject": 123,
+    "keterangan": ""
+  }
+]

@@ -14,10 +14,14 @@
       crossorigin="anonymous"
     />
 
+    <script type="text/javascript" src="data.json"></script>
+    <script type="text/javascript" src="operator.json"></script>
+    <script type="text/javascript" src="script.js"></script>
+
     <title>Hello, world!</title>
   </head>
 
-  <body>
+  <body onload="getDaftarBarang();">
     <div class="container border-secondary">
       <br />
       <h1 style="text-align: center">Cimareme</h1>
@@ -33,10 +37,10 @@
           <a class="nav-link" href="index.html">Update</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="delete.html">Delete</a>
+          <a class="nav-link active" href="#">Delete</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Tentang</a>
+          <a class="nav-link" href="tentang.html">Tentang</a>
         </li>
       </ul>
 
@@ -44,32 +48,47 @@
         class="container border-left border-bottom border-right border-secondary"
       >
         <br />
-        <h2>Sistem:</h2>
-        <div class="form-group row">
-          <label for="versi" class="col-sm-2 col-form-label">Versi </label>
-          <div class="col-sm-10">
-            <label for="versi" class="col-form-label">5 Des 2020</label>
+        <div class="row">
+          <div class="col-lg-10">
+            <h2>Cari:</h2>
+            <div class="form-group row">
+              <label for="cari" class="col-sm-1 col-form-label">Barang</label>
+              <div class="col-sm-6">
+                <input
+                  required=""
+                  type="text"
+                  class="form-control"
+                  list="daftarbarang"
+                  id="cari"
+                  onchange="displayDeleteTable();"
+                  placeholder="Tulis nomor artikel atau deskripsi barang"
+                />
+                <datalist id="daftarbarang"></datalist>
+                <div class="invalid-feedback">Barang tidak ditemukan.</div>
+              </div>
+
+              <div class="col-sm-2">
+                <button type="button" class="btn btn-danger">Hapus</button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="form-group row">
-          <label for="totprod" class="col-sm-2 col-form-label">Update</label>
-          <div class="col-sm-10">
-            <label for="totprod" class="col-form-label">
-              0.0.3a add CRUD tab, JavaScript logic + JSON.<br />
-              0.0.2a set form view as two columns, fix some input type, add html
-              form validation.<br />
-              0.0.1a first template design.</label
-            >
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="versi" class="col-sm-2 col-form-label">Oleh </label>
-          <div class="col-sm-10">
-            <label for="versi" class="col-form-label"
-              >Agapitus Keyka Vigiliant</label
-            >
-          </div>
-        </div>
+
+        <table class="table table-responsive table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Tanggal</th>
+              <th scope="col">Proses</th>
+              <th scope="col">Mesin</th>
+              <th scope="col">Operator</th>
+              <th scope="col">Hasil</th>
+              <th scope="col">Reject</th>
+              <th scope="col">Keterangan</th>
+              <th scope="col">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tableres"></tbody>
+        </table>
       </div>
     </div>
 
