@@ -114,10 +114,10 @@ function displayDeleteTable() {
           "<td>" +
           operator[i].keterangan +
           "</td>" +
-          "<td> <button type='button' class='btn btn-warning' value='" +
+          "<td> <button type='button' class='btn btn-sm btn-warning' value='" +
           operator[i].stamp +
           "'>Edit</button> " +
-          "<button type='button' class='btn btn-danger' value='" +
+          "<button type='button' class='btn btn-sm btn-danger' value='" +
           operator[i].stamp +
           "'>Hapus</button></td></tr>")
     );
