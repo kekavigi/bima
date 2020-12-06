@@ -1,21 +1,57 @@
+proses = ["Produksi", "Cutting", "Drawing", "Trimming", "Curling", "Dreuk", "Roll Pinggang", "Dreuk Bottom"];
+mesin = ["H 400", "H 350", "H 200", "H 80", "Tat Ming"];
+
+// Mendapatkan daftar barang yang sedang diproses (JSON)
+// dan menampilkannya dalam bentuk datalist
 function getDaftarBarang() {
   result = "";
-
   for (var i = 0; i < data.length; i++) {
     result +=
       "<option value='" + data[i].art + "'>" + data[i].desc + "</option>";
   }
-
   document.getElementById("daftarbarang").innerHTML = result;
 }
 
-// -1 jika barang ngga ada di data
-// id data jika ada
-function getRowJSONBarang() {
+// Mendapatkan semua daftar barang yang ada (JSON)
+// dan menampilkannya dalam bentuk datalist
+function getAllDaftarBarang() {
+  result = "";
+  for (var i = 0; i < desc.length; i++) {
+    result +=
+      "<option value='" + desc[i].art + "'>" + desc[i].desc + "</option>";
+  }
+  document.getElementById("daftarbarang").innerHTML = result;
+}
+
+// Mendapatkan daftar proses yang sedang tersedia
+// dan menampilkannya dalam bentuk option
+function getDaftarProses() {
+  result = "<option value=''>Pilih tahap</option>";
+  for (var i = 0; i < proses.length; i++) {
+    result +=
+      "<option value='" + proses[i] + "'>" + proses[i] + "</option>";
+  }
+  document.getElementById("proses").innerHTML = result;
+}
+
+// Mendapatkan daftar mesin yang sedang tersedia
+// dan menampilkannya dalam bentuk option
+function getDaftarMesin() {
+  result = "<option value=''>Pilih mesin</option>";
+  for (var i = 0; i < mesin.length; i++) {
+    result +=
+      "<option value='" + mesin[i] + "'>" + mesin[i] + "</option>";
+  }
+  document.getElementById("mesin").innerHTML = result;
+}
+
+// Mendapatkan baris JSON data barang yang tertulis di textbox
+// -1 jika barang ngga ada di data, id otherwise
+function getRowDataBarang() {
   text = document.getElementById("cari").value;
   id = -1;
   for (var i = 0; i < data.length; i++) {
-    if (data[i].art == text) {
+    if (text == data[i].art) {
       id = i;
       break;
     }
@@ -23,37 +59,66 @@ function getRowJSONBarang() {
   return id;
 }
 
-// -1 jika barang ngga ada di data
-// id data jika ada
+// Mendapatkan daftar baris JSON operator yang bersesuaian
+// dengan stamp yang terletak di data[].loper
 function getRowsJSONOperator(list) {
+  listmp = list.slice()
   listId = [];
-  for (var i = 0; list.length > 0 && i < operator.length; i++) {
-    var index = list.indexOf(operator[i].stamp);
+  for (var i = 0; listmp.length > 0 && i < operator.length; i++) {
+    var index = listmp.indexOf(operator[i].stamp);
     if (index > -1) {
-      list.splice(index, 1);
+      // op.stamp is in data[].loper
+      // hapus op.stamp dari list -- mempersingkat pencarian
+      // tambahkan indeks op.stamp
+      listmp.splice(index, 1);
       listId.push(i);
     }
   }
   return listId;
 }
 
-function displayInfo() {
-  id = getRowJSONBarang();
+function getRowDescBarang() {
+  text = document.getElementById("cari").value;
+  id = -1;
+  for (var i = 0; i < desc.length; i++) {
+    if (text == desc[i].art) {
+      id = i;
+      break;
+    }
+  }
+  return id;
+}
+
+function displayDesc() {
+  id = getRowDescBarang();
   if (id > -1) {
-    document.getElementById("artno").innerHTML = data[id].art;
-    document.getElementById("deskripsi").innerHTML = data[id].desc;
+    document.getElementById("deskripsi").innerHTML = desc[id].desc;
+    document.getElementById("errdeskripsi").innerHTML = "";
+  } else {
+    document.getElementById("deskripsi").innerHTML = "";
+    document.getElementById("errdeskripsi").innerHTML = "Barang tidak ditemukan";
+  }
+}
+
+function displayInfo() {
+  id = getRowDataBarang();
+  if (id > -1) {
     document.getElementById("order").innerHTML = data[id].order;
     document.getElementById("totprod").innerHTML = "!!!!";
+  } else {
+    document.getElementById("order").innerHTML = "";
+    document.getElementById("totprod").innerHTML = "";
   }
 }
 
 function displayReadTable() {
-  id = getRowJSONBarang();
+  id = getRowDataBarang();
   if (id == -1) {
     document.getElementById("tableres").innerHTML = "";
   } else {
     result = "";
-    getRowsJSONOperator(data[id].loper).forEach(
+    iterator = getRowsJSONOperator(data[id].loper);
+    iterator.forEach(
       (i) =>
         (result +=
           "<tr>" +
@@ -84,7 +149,7 @@ function displayReadTable() {
 }
 
 function displayDeleteTable() {
-  id = getRowJSONBarang();
+  id = getRowDataBarang();
   if (id == -1) {
     document.getElementById("tableres").innerHTML = "";
   } else {
@@ -114,13 +179,19 @@ function displayDeleteTable() {
           "<td>" +
           operator[i].keterangan +
           "</td>" +
-          "<td> <button type='button' class='btn btn-sm btn-warning' value='" +
+          "<td> <button type='button' class='btn btn-warning' value='" +
           operator[i].stamp +
           "'>Edit</button> " +
-          "<button type='button' class='btn btn-sm btn-danger' value='" +
+          "<button type='button' class='btn btn-danger' value='" +
           operator[i].stamp +
           "'>Hapus</button></td></tr>")
     );
     document.getElementById("tableres").innerHTML = result;
   }
+}
+
+function initUpdatePage(){
+  getDaftarBarang();
+  getDaftarProses();
+  getDaftarMesin();
 }

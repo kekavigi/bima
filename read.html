@@ -15,9 +15,9 @@
     />
 
     <script type="text/javascript" src="data.json"></script>
+    <script type="text/javascript" src="https://drive.google.com/uc?id=1RxvcLpSMYanCUVJ31tK5LhXOVrVWL2EF"></script>
     <script type="text/javascript" src="operator.json"></script>
     <script type="text/javascript" src="script.js"></script>
-
     <title>Hello, world!</title>
   </head>
 
@@ -25,6 +25,24 @@
     <div class="container border-secondary">
       <br />
       <h1 style="text-align: center">Cimareme</h1>
+
+      <div class="d-flex justify-content-center">
+        <div class="col-md-5">
+          <div class="form-group row">
+            <input
+              type="text"
+              class="text-center form-control"
+              list="daftarbarang"
+              id="cari"
+              onchange="displayDesc(); displayReadTable();"
+              placeholder="Tulis nomor artikel atau deskripsi barang"
+            />
+            <datalist id="daftarbarang"></datalist>
+          </div>
+          <p class="text-center" id="deskripsi"></p>
+          <p class="text-center text-danger" id="errdeskripsi"></p>
+        </div>
+      </div>
 
       <ul class="nav nav-tabs border-bottom border-secondary">
         <li class="nav-item">
@@ -48,33 +66,33 @@
         class="container border-left border-bottom border-right border-secondary"
       >
         <br />
-        <div class="row">
-          <div class="col-lg-10">
-            <h2>Cari:</h2>
-            <div class="form-group row">
-              <label for="cari" class="col-sm-1 col-form-label">Barang</label>
-              <div class="col-sm-6">
-                <input
-                  required=""
-                  type="text"
-                  class="form-control"
-                  list="daftarbarang"
-                  id="cari"
-                  onchange="displayReadTable();"
-                  placeholder="Tulis nomor artikel atau deskripsi barang"
-                />
-                <datalist id="daftarbarang"></datalist>
-                <div class="invalid-feedback">Barang tidak ditemukan.</div>
-              </div>
 
-              <div class="col-sm-2">
-                <button type="button" class="btn btn-primary">Refresh</button>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group row">
+              <label for="order" class="col-sm-2 col-form-label"
+                >Order
+              </label>
+              <div class="col-sm-10">
+                <label class="col-form-label" id="order">...</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group row">
+              <label for="order" class="col-sm-2 col-form-label"
+                >Produksi
+              </label>
+              <div class="col-sm-10">
+                <label class="col-form-label" id="totprod">...</label>
               </div>
             </div>
           </div>
         </div>
 
-        <table class="table table-responsive table-sm table-bordered table-striped">
+        <table
+          class="table table-responsive table-striped"
+        >
           <thead>
             <tr>
               <th scope="col">Tanggal</th>
