@@ -14,45 +14,30 @@
       crossorigin="anonymous"
     />
 
-    <script type="text/javascript" src="data.json"></script>
-    <script type="text/javascript" src="https://drive.google.com/uc?id=1RxvcLpSMYanCUVJ31tK5LhXOVrVWL2EF"></script>
-    <script type="text/javascript" src="operator.json"></script>
+    <script type="text/javascript" src="dataKerja.json"></script>
+    <script type="text/javascript" src="dataMaster.json"></script>
+    <script
+      type="text/javascript"
+      src="https://drive.google.com/uc?id=1RxvcLpSMYanCUVJ31tK5LhXOVrVWL2EF"
+    ></script>
     <script type="text/javascript" src="script.js"></script>
     <title>Hello, world!</title>
   </head>
 
-  <body onload="getDaftarBarang();">
+  <body>
     <div class="container border-secondary">
       <br />
       <h1 style="text-align: center">Cimareme</h1>
-
-      <div class="d-flex justify-content-center">
-        <div class="col-md-5">
-          <div class="form-group row">
-            <input
-              type="text"
-              class="text-center form-control"
-              list="daftarbarang"
-              id="cari"
-              onchange="displayDesc(); displayReadTable();"
-              placeholder="Tulis nomor artikel atau deskripsi barang"
-            />
-            <datalist id="daftarbarang"></datalist>
-          </div>
-          <p class="text-center" id="deskripsi"></p>
-          <p class="text-center text-danger" id="errdeskripsi"></p>
-        </div>
-      </div>
 
       <ul class="nav nav-tabs border-bottom border-secondary">
         <li class="nav-item">
           <a class="nav-link" href="create.html">Create</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Read</a>
+          <a class="nav-link" href="index.html">Update</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Update</a>
+          <a class="nav-link active" href="#">Read</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="delete.html">Delete</a>
@@ -66,46 +51,69 @@
         class="container border-left border-bottom border-right border-secondary"
       >
         <br />
+        <div class="col row">
+          <div class="col-lg-4">
+            <div class="form-group row">
+              <input
+                required=""
+                class="form-control"
+                type="date"
+                id="textboxTanggal"
+              />
+              <div class="invalid-feedback">Pilih tanggal pengerjaan.</div>
+            </div>
 
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="form-group row">
-              <label for="order" class="col-sm-2 col-form-label"
-                >Order
-              </label>
-              <div class="col-sm-10">
-                <label class="col-form-label" id="order">...</label>
+            <div class="d-flex justify-content-center">
+              <div class="form-group row">
+                <div
+                  class="custom-control custom-radio custom-control-inline"
+                  onclick="displaySearchOption('bagian');"
+                >
+                  <input
+                    type="radio"
+                    id="radiobagian"
+                    name="radio"
+                    class="custom-control-input"
+                  />
+                  <label class="custom-control-label" for="radiobagian"
+                    >Bagian</label
+                  >
+                </div>
+                <div
+                  class="custom-control custom-radio custom-control-inline"
+                  onclick="displaySearchOption('barang');"
+                >
+                  <input
+                    type="radio"
+                    id="radiobarang"
+                    name="radio"
+                    class="custom-control-input"
+                  />
+                  <label class="custom-control-label" for="radiobarang"
+                    >Barang</label
+                  >
+                </div>
               </div>
             </div>
+            <div id="searchOption" class="form-group row"></div>
           </div>
-          <div class="col-lg-6">
-            <div class="form-group row">
-              <label for="order" class="col-sm-2 col-form-label"
-                >Produksi
-              </label>
-              <div class="col-sm-10">
-                <label class="col-form-label" id="totprod">...</label>
-              </div>
-            </div>
+          <div class="col-lg-8">
+            <table class="table table-responsive table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Artno</th>
+                  <th scope="col">Proses</th>
+                  <th scope="col">Mesin</th>
+                  <th scope="col">Operator</th>
+                  <th scope="col">Hasil</th>
+                  <th scope="col">Reject</th>
+                  <th scope="col">Keterangan</th>
+                </tr>
+              </thead>
+              <tbody id="tableResult"></tbody>
+            </table>
           </div>
         </div>
-
-        <table
-          class="table table-responsive table-striped"
-        >
-          <thead>
-            <tr>
-              <th scope="col">Tanggal</th>
-              <th scope="col">Proses</th>
-              <th scope="col">Mesin</th>
-              <th scope="col">Operator</th>
-              <th scope="col">Hasil</th>
-              <th scope="col">Reject</th>
-              <th scope="col">Keterangan</th>
-            </tr>
-          </thead>
-          <tbody id="tableres"></tbody>
-        </table>
       </div>
     </div>
 

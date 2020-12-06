@@ -14,46 +14,30 @@
       crossorigin="anonymous"
     />
 
-    <script type="text/javascript" src="data.json"></script>
-    <script type="text/javascript" src="https://drive.google.com/uc?id=1RxvcLpSMYanCUVJ31tK5LhXOVrVWL2EF"></script>
-    <script type="text/javascript" src="operator.json"></script>
+    <script type="text/javascript" src="dataKerja.json"></script>
+    <script type="text/javascript" src="dataMaster.json"></script>
+    <script
+      type="text/javascript"
+      src="https://drive.google.com/uc?id=1RxvcLpSMYanCUVJ31tK5LhXOVrVWL2EF"
+    ></script>
     <script type="text/javascript" src="script.js"></script>
-
     <title>Hello, world!</title>
   </head>
 
-  <body onload="getAllDaftarBarang()">
+  <body onload="displayOptionBarang('desc')">
     <div class="container border-secondary">
       <br />
       <h1 style="text-align: center">Cimareme</h1>
-
-      <div class="d-flex justify-content-center">
-        <div class="col-md-5">
-          <div class="form-group row">
-            <input
-              type="text"
-              class="text-center form-control"
-              list="daftarbarang"
-              id="cari"
-              onchange="displayDesc();"
-              placeholder="Tulis nomor artikel atau deskripsi barang"
-            />
-            <datalist id="daftarbarang"></datalist>
-          </div>
-          <p class="text-center" id="deskripsi"></p>
-          <p class="text-center text-danger" id="errdeskripsi"></p>
-        </div>
-      </div>
 
       <ul class="nav nav-tabs border-bottom border-secondary">
         <li class="nav-item">
           <a class="nav-link active" href="#">Create</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="read.html">Read</a>
+          <a class="nav-link" href="index.html">Update</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Update</a>
+          <a class="nav-link" href="read.html">Read</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="delete.html">Delete</a>
@@ -67,8 +51,29 @@
         class="container border-left border-bottom border-right border-secondary"
       >
         <br />
-        <h2>Bum Bum Cha!</h2>
+        <div class="d-flex justify-content-center">
+          <div class="col-md-5">
+            <div class="form-group row">
+              <input
+                type="text"
+                class="text-center form-control"
+                list="dropdownBarang"
+                id="textboxBarang"
+                onchange="displayStatusBarang('desc');"
+                placeholder="Tulis nomor artikel atau deskripsi barang"
+              />
+              <datalist id="dropdownBarang"></datalist>
+            </div>
+            <p class="text-center" id="descBarang"></p>
+            <p class="text-center text-danger" id="errDescBarang"></p>
+          </div>
+        </div>
+
+        <br/>
+        <p class="text-center"> Bum Bum Cha!</p>
+
       </div>
+
     </div>
 
     <!-- Optional JavaScript -->
