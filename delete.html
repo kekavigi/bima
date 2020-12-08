@@ -14,12 +14,9 @@
       crossorigin="anonymous"
     />
 
-    <script type="text/javascript" src="dataKerja.json"></script>
-    <script type="text/javascript" src="dataMaster.json"></script>
-    <script
-      type="text/javascript"
-      src="https://drive.google.com/uc?id=1RxvcLpSMYanCUVJ31tK5LhXOVrVWL2EF"
-    ></script>
+    <script src="https://script.google.com/macros/s/AKfycby5vMBOfOi3x6LgUTrXkBDH27X0hif8qmrBoApbwi9_/dev?callback=dataKerja"> </script>
+    <script src="https://script.google.com/macros/s/AKfycby5vMBOfOi3x6LgUTrXkBDH27X0hif8qmrBoApbwi9_/dev?callback=dataMaster"> </script>
+    <script src="https://script.google.com/macros/s/AKfycby5vMBOfOi3x6LgUTrXkBDH27X0hif8qmrBoApbwi9_/dev?callback=daftarDesc"> </script>
     <script type="text/javascript" src="script.js"></script>
     <title>Hello, world!</title>
   </head>
@@ -67,7 +64,7 @@
               <div class="form-group row">
                 <div
                   class="custom-control custom-radio custom-control-inline"
-                  onclick="displaySearchOption('bagian');"
+                  onclick="displaySearchOption('bagian', 'action');"
                 >
                   <input
                     type="radio"
@@ -81,7 +78,7 @@
                 </div>
                 <div
                   class="custom-control custom-radio custom-control-inline"
-                  onclick="displaySearchOption('barang');"
+                  onclick="displaySearchOption('barang', 'action');"
                 >
                   <input
                     type="radio"
@@ -98,7 +95,7 @@
             <div id="searchOption" class="form-group row"></div>
           </div>
           <div class="col-lg-8">
-            <table class="table table-responsive table-striped">
+            <table class="table table-sm table-responsive table-striped">
               <thead>
                 <tr>
                   <th scope="col">Artno</th>

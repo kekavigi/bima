@@ -1,6 +1,9 @@
 // ======================== Definisi Variabel =====================================
 
 //daftarDesc
+//dataMaster = [art, order]
+//dataKerja = [art, order, date, proses, mesin, orang, hasil, reject, ket]
+daftarOrang = ["Agus", "Budi", "Cecep", "Doni", "Elang", "Franz"];
 
 daftarProses = [
   { bagian: "Cutting", proses: ["Pon", "Circle"] },
@@ -34,29 +37,24 @@ daftarMesin = [
   "Roll Sendok",
 ];
 
-daftarOrang = ["Agus", "Budi", "Cecep", "Doni", "Elang", "Franz"];
-
-//dataMaster = [art, order]
-
-//dataKerja = [art, order, date, proses, mesin, orang, hasil, reject, ket]
-
 // ===========================================================================================
 
 // mencari baris data barang berdasarkan art di on
 //   id jika barang ada, -1 jika tidak
 function getRowBarang(art, on) {
-  id = -1;
+  var id = -1;
+  var iter;
 
   // pencarian di?
   if (on === "master") {
-    iter_ = dataMaster;
+    iter = dataMaster;
   } else if (on === "desc") {
-    iter_ = daftarDesc;
+    iter = daftarDesc;
   }
 
   // searching
-  for (var i = 0; i < iter_.length; i++) {
-    if (art === iter_[i].art) {
+  for (var i = 0; i < iter.length; i++) {
+    if (art === iter[i].art) {
       id = i;
       break;
     }
@@ -85,7 +83,8 @@ function getDaftarProsesDi(bagian) {
 //   jika how===minimal: daftar barang yang sedang dikerjakan
 //   jika how===all: daftar barang di kamus
 function displayOptionBarang(on) {
-  result = "";
+  var result = "";
+  var iter;
 
   // pencarian di?
   if (on === "master") {
@@ -105,7 +104,7 @@ function displayOptionBarang(on) {
 
 // menampilkan dropdown proses yang sedang tersedia
 function displayOptionProses() {
-  result = "<option value=''>...</option>";
+  var result = "<option value=''>...</option>";
 
   for (var i = 0; i < daftarProses.length; i++) {
     // optgroup bagian
@@ -123,7 +122,7 @@ function displayOptionProses() {
 
 // menampilkan dropdown bagian proses yang sedang tersedia
 function displayOptionBagian() {
-  result = "<option value=''>...</option>";
+  var result = "<option value=''>...</option>";
 
   for (var i = 0; i < daftarProses.length; i++) {
     result += "<option value='" + daftarProses[i].bagian + "'>";
@@ -134,7 +133,7 @@ function displayOptionBagian() {
 
 // menampilkan dropdown proses yang sedang tersedia
 function displayOptionMesin() {
-  result = "<option value=''>...</option>";
+  var result = "<option value=''>...</option>";
 
   for (var i = 0; i < daftarMesin.length; i++) {
     result += "<option value='" + daftarMesin[i] + "'>";
@@ -144,7 +143,7 @@ function displayOptionMesin() {
 }
 
 function displayOptionOrang() {
-  result = "<option value=''>...</option>";
+  var result = "<option value=''>...</option>";
 
   for (var i = 0; i < daftarOrang.length; i++) {
     result += "<option value='" + daftarOrang[i] + "'>";
@@ -154,11 +153,11 @@ function displayOptionOrang() {
 }
 
 // menampilkan kotak pencarian sesuai radio button yang dipilih
-function displaySearchOption(on) {
+function displaySearchOption(on, action) {
   if (on === "bagian") {
     document.getElementById("searchOption").innerHTML =
       "<select required='' class='custom-select' id='dropdownBagian'></select>" +
-      "<br><br><button type='button' class='btn btn-primary' onclick='displaySearchResult(true, false)'>Cari</button>";
+      "<br><br><button type='button' class='btn btn-primary' onclick='displaySearchResult(true, false,\""+action+"\")'>Cari</button>";
     displayOptionBagian();
   } else if (on === "barang") {
     document.getElementById("searchOption").innerHTML =
@@ -168,7 +167,7 @@ function displaySearchOption(on) {
       "<datalist id='dropdownBarang'></datalist>" +
       "<div class='container'><p class='text-center' id='descBarang'></p>" +
       "<p class='text-center text-danger' id='errDescBarang'></p></div>" +
-      "<button type='button' class='btn btn-primary' onclick='displaySearchResult(false, true)'>Cari</button>";
+      "<button type='button' class='btn btn-primary' onclick='displaySearchResult(false, true,\""+action+"\")'>Cari</button>";
     displayOptionBarang("master");
   }
 }
@@ -178,8 +177,9 @@ function displaySearchOption(on) {
 // menampilkan deskripsi jika barang di hasil pencarian
 // tersedia, menampilkan status error jika tidak
 function displayStatusBarang(on) {
-  art = document.getElementById("textboxBarang").value;
-  id = getRowBarang(art, on);
+  var art = document.getElementById("textboxBarang").value;
+  var id = getRowBarang(art, on);
+  var desc, err;
 
   if (id > -1) {
     desc = getDescBarang(art);
@@ -211,44 +211,34 @@ function displayInfoBarang() {
 }
 
 //
-function displaySearchResult(bagian, barang) {
+function displaySearchResult(bagian, barang, how) {
   var tanggal = document.getElementById("textboxTanggal").value;
+  if (!tanggal) {return false;}
 
-  if (!tanggal) {
-    return false;
-  }
-  var result = "";
+  var idlist = [];
 
-  if (bagian) {
+  if (bagian && document.getElementById("dropdownBagian").value) {
     var bagian = document.getElementById("dropdownBagian").value;
-    if (!bagian) {
-      return false;
-    }
-
     var daftarProses_ = getDaftarProsesDi(bagian);
+    for (var i = 0; i < dataKerja.length; i++) {
+      var row = dataKerja[i];
+      if (row.date == tanggal && daftarProses_.includes(row.proses)) {idlist.push(i);}
+    }
 
-    for (var i = 0; i < dataKerja.length; i++) {
-      var row = dataKerja[i];
-      if (row.date == tanggal && daftarProses_.includes(row.proses)) {
-        result += "<tr>";
-        result += "<td>" + row.art + "</td>";
-        result += "<td>" + row.proses + "</td>";
-        result += "<td>" + row.mesin + "</td>";
-        result += "<td>" + row.orang + "</td>";
-        result += "<td>" + row.hasil + "</td>";
-        result += "<td>" + row.reject + "</td>";
-        result += "<td>" + row.ket + "</td>";
-        result += "</tr>";
-      }
-    }
-  } else if (barang) {
+  } else if (barang && document.getElementById("textboxBarang").value) {
     var barang = document.getElementById("textboxBarang").value;
-    if (!barang) {
-      return false;
-    }
-    for (var i = 0; i < dataKerja.length; i++) {
+      for (var i = 0; i < dataKerja.length; i++) {
       var row = dataKerja[i];
-      if (row.date == tanggal && row.art == barang) {
+      if (row.date == tanggal && row.art == barang) {idlist.push(i);}
+    };
+  };
+
+    var result = "";
+    console.log(idlist);
+
+    if (idlist.length>0){
+      for (var j=0; j< idlist.length; j++){
+        row = dataKerja[idlist[j]];
         result += "<tr>";
         result += "<td>" + row.art + "</td>";
         result += "<td>" + row.proses + "</td>";
@@ -257,10 +247,12 @@ function displaySearchResult(bagian, barang) {
         result += "<td>" + row.hasil + "</td>";
         result += "<td>" + row.reject + "</td>";
         result += "<td>" + row.ket + "</td>";
+        if (how=="action"){
+          result += "<td><button type='button' class='btn btn-sm btn-danger' value='" + row.id + "'>Delete</button></td>";          
+        }
         result += "</tr>";
       }
-    }
-  }
+    };
 
   document.getElementById("tableResult").innerHTML = result;
 }
